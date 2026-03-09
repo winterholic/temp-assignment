@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: realteeth-hw
+
+  datasource:
+    url: jdbc:h2:file:./data/jobs;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+mock-worker:
+  base-url: https://dev.realteeth.ai/mock
+  api-key: mock_5ec53cc9449c4bdfabd578ac134eb990
+  timeout-seconds: 90
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.realteeth.hw: INFO
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
