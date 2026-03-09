@@ -27,7 +27,9 @@ docker-compose up --build
 
 ---
 
-## 상태 모델
+## 설계 설명
+
+### 상태 모델
 
 ```
 PENDING → PROCESSING → COMPLETED
@@ -40,12 +42,6 @@ PENDING → PROCESSING → COMPLETED
 - FAILED: 처리 실패를 응답받은 상태입니다.
 
 기존 Mock Worker가 가지는 상태에 PENDING을 추가하였습니다.
-
----
-
-## 설계 설명
-
-
 
 ### 중복 요청 처리
 
